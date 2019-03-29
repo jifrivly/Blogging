@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Registration form</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="my.js"></script>
+</head>
+
+<body class="container-fluid">
+
+
+    <div class="row">
+
+        <div class="col col-12 col-sm-1 col-md-2 colo-lg-4 col-xl-4"></div>
+        <div class="col col-12 col-sm-10 col-md-8 colo-lg-4 col-xl-4 border border-info bg-dark text-light py-3">
+
+
+            <!-- Registration form  -->
+            <h2 class="text-center">Registration</h2>
+            <form action="" name="reg_form" onsubmit="validate();">
+
+                <!-- first name -->
+                <div class="form-group">
+                    <label for="firstname">Firstname : </label>
+                    <input type="text" name="firstname" id="firstname" class="form-control" placeholder=""
+                        aria-describedby="helpId" required>
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- last name -->
+                <div class="form-group">
+                    <label for="lastname">Lastname : </label>
+                    <input type="text" name="lastname" id="lastname" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- Date of birth -->
+                <div class="form-group">
+                    <label for="dob"> Date of birth : </label>
+                    <input type="date" name="dob" id="dob" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- State -->
+                <div class="form-group">
+                    <label for="state"> State : </label>
+                    <select class="form-control" name="state" id="state">
+                        <option value="Kerala">Kerala </option>
+                        <option disabled>Andaman and Nicobar Islands </option>
+                        <option disabled>Andhra Pradesh </option>
+                        <option disabled>Arunachal Pradesh </option>
+                        <option disabled>Assam </option>
+                        <option disabled>Bihar </option>
+                        <option disabled>Chandigarh </option>
+                        <option disabled>Chhattisgarh </option>
+                        <option disabled>Dadra and Nagar Haveli </option>
+                        <option disabled>Daman and Diu </option>
+                        <option disabled>National Capital Territory of Delhi </option>
+                        <option disabled>Goa </option>
+                        <option disabled>Gujarat </option>
+                        <option disabled>Haryana </option>
+                        <option disabled>Himachal Pradesh </option>
+                        <option disabled>Jammu and Kashmir </option>
+                        <option disabled>Jharkhand </option>
+                        <option disabled>Karnataka</option>
+                    </select>
+                </div>
+
+                <!-- District -->
+                <div class="form-group">
+                    <label for="district"> District : </label>
+                    <select class="form-control" name="district" id="district">
+                        <option value="Alappuzha">Alappuzha</option>
+                        <option value="Ernakulam">Ernakulam</option>
+                        <option value="Idukki">Idukki</option>
+                        <option value="Kannur">Kannur</option>
+                        <option value="Kasaragod">Kasaragod</option>
+                        <option value="Kollam">Kollam</option>
+                        <option value="Kottayam">Kottayam</option>
+                        <option value="Kozhikode">Kozhikode</option>
+                        <option value="Malappuram">Malappuram</option>
+                        <option value="Palakkad">Palakkad</option>
+                        <option value="Pathanamthitta">Pathanamthitta</option>
+                        <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                        <option value="Thrissur">Thrissur</option>
+                        <option value="Wayanad">Wayanad</option>
+                    </select>
+                </div>
+
+                <!-- Place -->
+                <div class="form-group">
+                    <label for="place"> Place : </label>
+                    <input type="text" name="place" id="place" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- Pincode -->
+                <div class="form-group">
+                    <label for="pincode"> Pincode : </label>
+                    <input type="number" name="pincode" id="pincode" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- Address -->
+                <div class="form-group">
+                    <label for="address"> Address : </label>
+                    <textarea class="form-control" name="address" id="address" rows="3"></textarea>
+                </div>
+
+
+                <!-- Qualification -->
+                <div class="form-group">
+                    <label for="qualification">Qualification : </label>
+                    <select class="form-control" name="qualification" id="qualification">
+                        <option value="+2"> +2 </option>
+                        <option value="diploma"> Diploma </option>
+                        <option value="digree"> Digree </option>
+                        <option value="pg"> PG </option>
+                        <option value="btech"> B-Tech </option>
+                        <option value="mtech"> M-Tech </option>
+                    </select>
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- Guardian name -->
+                <div class="form-group">
+                    <label for="guardian"> Guadian name : </label>
+                    <input type="text" name="guardian" id="guardian" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- gender -->
+                <label for="gender">Gender :
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="gender"  value="male" checked>
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="gender"  value="female">
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="gender"  value="none">
+                            Not Specified
+                        </label>
+                    </div>
+                </label>
+
+                <!-- Blood group -->
+                <div class="form-group">
+                    <label for="blood_group"> Blood Group : </label>
+                    <select class="form-control" name="blood_group" id="blood_group">
+                        <option value="A+"> A+ </option>
+                        <option value="A-"> A- </option>
+                        <option value="B+"> B+ </option>
+                        <option value="B-"> B- </option>
+                        <option value="AB+"> AB+ </option>
+                        <option value="AB-"> AB- </option>
+                        <option value="O+"> O+ </option>
+                        <option value="O-"> O- </option>
+                    </select>
+                </div>
+
+                <!-- Mobile -->
+                <div class="form-group">
+                    <label for="mobile"> Mobile number : </label>
+                    <input type="number" name="mobile" id="mobile" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- email id -->
+                <div class="form-group">
+                    <label for="email"> Email ID : </label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password"> Password : </label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirm_password"> Confirm password : </label>
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-danger"> </small>
+                </div>
+
+                <!-- Register Button -->
+                <div class="text-right">
+                    <button type="button" onclick="validate();" class="btn btn-primary btn-lg">Register</button>
+                </div>
+            </form>
+
+
+        </div>
+        <div class="col col-12 col-sm-1 col-md-2 colo-lg-4 col-xl-4"></div>
+
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

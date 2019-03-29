@@ -1,0 +1,11 @@
+{
+  "name": "assignment_1_html_css_js",
+  "version": "1.0.0",
+  "description": "This is the first assignment for ABCD Fullstack development course,and in html css js taken by Anish sir",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jifrivly",
+  "license": "ISC"
+}

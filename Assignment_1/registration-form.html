@@ -12,6 +12,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="my.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 </head>
 
 <body class="container-fluid">
@@ -29,10 +34,10 @@
 
                 <!-- first name -->
                 <div class="form-group">
-                    <label for="firstname">Firstname : </label>
+                    <label for="firstname" id="id1">Firstname : </label>
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder=""
-                        aria-describedby="helpId" required>
-                    <small id="helpId" class="text-danger"> </small>
+                        aria-describedby="helpId" >
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- last name -->
@@ -40,7 +45,7 @@
                     <label for="lastname">Lastname : </label>
                     <input type="text" name="lastname" id="lastname" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Date of birth -->
@@ -48,13 +53,14 @@
                     <label for="dob"> Date of birth : </label>
                     <input type="date" name="dob" id="dob" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- State -->
                 <div class="form-group">
                     <label for="state"> State : </label>
                     <select class="form-control" name="state" id="state">
+                        <option disabled selected value="">Select your state.. </option>
                         <option value="Kerala">Kerala </option>
                         <option disabled>Andaman and Nicobar Islands </option>
                         <option disabled>Andhra Pradesh </option>
@@ -74,12 +80,14 @@
                         <option disabled>Jharkhand </option>
                         <option disabled>Karnataka</option>
                     </select>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- District -->
                 <div class="form-group">
                     <label for="district"> District : </label>
                     <select class="form-control" name="district" id="district">
+                        <option disabled selected value="" >Select your district.. </option>
                         <option value="Alappuzha">Alappuzha</option>
                         <option value="Ernakulam">Ernakulam</option>
                         <option value="Idukki">Idukki</option>
@@ -95,6 +103,7 @@
                         <option value="Thrissur">Thrissur</option>
                         <option value="Wayanad">Wayanad</option>
                     </select>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Place -->
@@ -102,7 +111,7 @@
                     <label for="place"> Place : </label>
                     <input type="text" name="place" id="place" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Pincode -->
@@ -110,13 +119,14 @@
                     <label for="pincode"> Pincode : </label>
                     <input type="number" name="pincode" id="pincode" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Address -->
                 <div class="form-group">
                     <label for="address"> Address : </label>
                     <textarea class="form-control" name="address" id="address" rows="3"></textarea>
+                    <small id="helpId" class=""> </small>
                 </div>
 
 
@@ -124,14 +134,15 @@
                 <div class="form-group">
                     <label for="qualification">Qualification : </label>
                     <select class="form-control" name="qualification" id="qualification">
+                        <option disabled selected value="">Select your Qualification.. </option>
                         <option value="+2"> +2 </option>
                         <option value="diploma"> Diploma </option>
-                        <option value="digree"> Digree </option>
+                        <option value="digree"> Degree </option>
                         <option value="pg"> PG </option>
                         <option value="btech"> B-Tech </option>
                         <option value="mtech"> M-Tech </option>
                     </select>
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Guardian name -->
@@ -139,14 +150,14 @@
                     <label for="guardian"> Guadian name : </label>
                     <input type="text" name="guardian" id="guardian" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- gender -->
                 <label for="gender">Gender :
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender"  value="male" checked>
+                            <input type="radio" class="form-check-input" name="gender"  value="male">
                             Male
                         </label>
                     </div>
@@ -162,12 +173,14 @@
                             Not Specified
                         </label>
                     </div>
+                    <small id="helpId" class=""> </small>
                 </label>
 
                 <!-- Blood group -->
                 <div class="form-group">
                     <label for="blood_group"> Blood Group : </label>
                     <select class="form-control" name="blood_group" id="blood_group">
+                        <option disabled selected value="">Select your blood group.. </option>
                         <option value="A+"> A+ </option>
                         <option value="A-"> A- </option>
                         <option value="B+"> B+ </option>
@@ -177,6 +190,7 @@
                         <option value="O+"> O+ </option>
                         <option value="O-"> O- </option>
                     </select>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Mobile -->
@@ -184,7 +198,7 @@
                     <label for="mobile"> Mobile number : </label>
                     <input type="number" name="mobile" id="mobile" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- email id -->
@@ -192,7 +206,7 @@
                     <label for="email"> Email ID : </label>
                     <input type="email" name="email" id="email" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Password -->
@@ -200,7 +214,7 @@
                     <label for="password"> Password : </label>
                     <input type="password" name="password" id="password" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Confirm Password -->
@@ -208,7 +222,7 @@
                     <label for="confirm_password"> Confirm password : </label>
                     <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder=""
                         aria-describedby="helpId">
-                    <small id="helpId" class="text-danger"> </small>
+                    <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Register Button -->

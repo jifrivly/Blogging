@@ -14,32 +14,35 @@ function validate() {
     var blood_group = document.getElementById("blood_group");
     var mobile = document.getElementById("mobile");
     var email = document.getElementById("email")
-    // var email = document.getElementById("email");
     var password = document.getElementById("password");
     var confirm_password = document.getElementById("confirm_password");
 
+    var confirm = true
+    if (!inputCheck.call(confirm_password)) { confirm = false }
+    if (!inputCheck.call(password)) { confirm = false }
+    if (!inputCheck.call(email)) { confirm = false }
+    if (!phoneInputCheck.call(mobile)) { confirm = false }
+    if (!inputCheck.call(blood_group)) { confirm = false }
+    if (!radioInputCheck.call(gender)) { confirm = false }
+    if (!inputCheck.call(guardian)) { confirm = false }
+    if (!inputCheck.call(qualification)) { confirm = false }
+    if (!inputCheck.call(address)) { confirm = false }
+    if (!inputCheck.call(pincode)) { confirm = false }
+    if (!inputCheck.call(place)) { confirm = false }
+    if (!inputCheck.call(district)) { confirm = false }
+    if (!inputCheck.call(state)) { confirm = false }
+    if (!inputCheck.call(dob)) { confirm = false }
+    if (!inputCheck.call(firstname)) { confirm = false }
 
-    console.log(gender)
 
-    if (inputCheck.call(firstname) &&
-        inputCheck.call(dob) &&
-        inputCheck.call(state) &&
-        inputCheck.call(district) &&
-        inputCheck.call(place) &&
-        inputCheck.call(pincode) &&
-        inputCheck.call(address) &&
-        inputCheck.call(qualification) &&
-        inputCheck.call(guardian) &&
-        radioInputCheck.call(gender) &&
-        inputCheck.call(blood_group) &&
-        phoneInputCheck.call(mobile) &&
-        inputCheck.call(email) &&
-        inputCheck.call(password) &&
-        inputCheck.call(confirm_password)) {
+    if (confirm) {
         console.log("Successfully checked")
+    } else {
+        console.log("false input, try again..")
     }
 
 }
+
 
 // function to check normal inputs
 function inputCheck() {
@@ -59,7 +62,7 @@ function radioInputCheck() {
     var option = ""
     for (let i = 0; i < this.length; i++) {
         // console.log("checking radio input.." + i)
-        console.log(this[i])
+        // console.log(this[i])
         if (this[i].checked) {
             option = this[i].value;
             successOutput.call(this[this.length - 1].parentNode.parentNode)
@@ -82,14 +85,26 @@ function phoneInputCheck() {
     } else if (this.value.length > 10) {
         requiredOutput.call(this, " * maximum 10 digits allowed.. ")
     } else if (["9", "8", "7", "6"].indexOf(this.value.charAt(0)) == -1) {
-        console.log("1st digit checking started")
+        // console.log("1st digit checking started")
         requiredOutput.call(this, " * Not a valid number.. ")
+    } else if (this.value.match(/^[0-9]+$/)) {
+        requiredOutput.call(this, " * Not a valid number only digits allowed.. ")        
     } else {
         successOutput.call(this)
     }
-    console.log(this.value.charAt(0) + ["9", "8", "7", "6"].indexOf(this.value.charAt(0)))
+    // console.log(this.value.charAt(0) + ["9", "8", "7", "6"].indexOf(this.value.charAt(0)))
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 function requiredOutput(msg = " * This field is required") {

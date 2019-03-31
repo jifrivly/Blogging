@@ -12,7 +12,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="my.js"></script>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -36,7 +36,7 @@
                 <div class="form-group">
                     <label for="firstname" id="id1">Firstname : </label>
                     <input type="text" name="firstname" id="firstname" class="form-control" placeholder=""
-                        aria-describedby="helpId" >
+                        aria-describedby="helpId">
                     <small id="helpId" class=""> </small>
                 </div>
 
@@ -87,7 +87,7 @@
                 <div class="form-group">
                     <label for="district"> District : </label>
                     <select class="form-control" name="district" id="district">
-                        <option disabled selected value="" >Select your district.. </option>
+                        <option disabled selected value="">Select your district.. </option>
                         <option value="Alappuzha">Alappuzha</option>
                         <option value="Ernakulam">Ernakulam</option>
                         <option value="Idukki">Idukki</option>
@@ -157,19 +157,19 @@
                 <label for="gender">Gender :
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender"  value="male">
+                            <input type="radio" class="form-check-input" name="gender" value="male">
                             Male
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender"  value="female">
+                            <input type="radio" class="form-check-input" name="gender" value="female">
                             Female
                         </label>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="gender"  value="none">
+                            <input type="radio" class="form-check-input" name="gender" value="none">
                             Not Specified
                         </label>
                     </div>
@@ -220,13 +220,13 @@
                 <!-- Confirm Password -->
                 <div class="form-group">
                     <label for="confirm_password"> Confirm password : </label>
-                    <input type="password" name="confirm_password" id="confirm_password" class="form-control" placeholder=""
-                        aria-describedby="helpId">
+                    <input type="password" name="confirm_password" id="confirm_password" class="form-control"
+                        placeholder="" aria-describedby="helpId">
                     <small id="helpId" class=""> </small>
                 </div>
 
                 <!-- Register Button -->
-                <div class="text-right">
+                <div class="text-right" id="confirmdiv">
                     <button type="button" onclick="validate();" class="btn btn-primary btn-lg">Register</button>
                 </div>
             </form>

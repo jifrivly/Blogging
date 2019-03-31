@@ -1,3 +1,4 @@
+
 function validate() {
     var firstname = document.getElementById('firstname')
     // var firstname = document.forms["reg_form"]["firstname"];
@@ -17,26 +18,30 @@ function validate() {
     var password = document.getElementById("password");
     var confirm_password = document.getElementById("confirm_password");
 
+
     var confirm = true
-    if (!inputCheck.call(confirm_password)) { confirm = false }
-    if (!inputCheck.call(password)) { confirm = false }
-    if (!inputCheck.call(email)) { confirm = false }
+    if (!confirmPasswordInputCheck.call(confirm_password)) { confirm = false }
+    if (!passwordInputCheck.call(password)) { confirm = false }
+    if (!emailInputCheck.call(email)) { confirm = false }
     if (!phoneInputCheck.call(mobile)) { confirm = false }
     if (!inputCheck.call(blood_group)) { confirm = false }
     if (!radioInputCheck.call(gender)) { confirm = false }
     if (!inputCheck.call(guardian)) { confirm = false }
     if (!inputCheck.call(qualification)) { confirm = false }
     if (!inputCheck.call(address)) { confirm = false }
-    if (!inputCheck.call(pincode)) { confirm = false }
+    if (!pincodeInputCheck.call(pincode)) { confirm = false }
     if (!inputCheck.call(place)) { confirm = false }
     if (!inputCheck.call(district)) { confirm = false }
     if (!inputCheck.call(state)) { confirm = false }
     if (!inputCheck.call(dob)) { confirm = false }
     if (!inputCheck.call(firstname)) { confirm = false }
 
-
+    console.log(password.value)
+    console.log(confirm_password.value)
     if (confirm) {
         console.log("Successfully checked")
+        let alert = '<div class="alert alert-success text-center" role="alert"> Registered Successfully </div>'
+        document.getElementById("confirmdiv").innerHTML = alert
     } else {
         console.log("false input, try again..")
     }
@@ -75,34 +80,133 @@ function radioInputCheck() {
     }
 }
 
-// function to check mobile number input
-function phoneInputCheck() {
-    if (this.value == "" | this.value == " ") {
-        requiredOutput.call(this);
-        return false;
-    } else if (this.value.length < 10) {
-        requiredOutput.call(this, " * 10 digits required.. ")
-    } else if (this.value.length > 10) {
-        requiredOutput.call(this, " * maximum 10 digits allowed.. ")
-    } else if (["9", "8", "7", "6"].indexOf(this.value.charAt(0)) == -1) {
-        // console.log("1st digit checking started")
-        requiredOutput.call(this, " * Not a valid number.. ")
-    } else if (this.value.match(/^[0-9]+$/)) {
-        requiredOutput.call(this, " * Not a valid number only digits allowed.. ")        
+
+// function to check pincode input
+function pincodeInputCheck() {
+    var pincode = this.value.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')
+    if (pincode == "" && pincode == " ") {
+        requiredOutput.call(this)
+        return false
+    } else if (pincode.length != 6) {
+        requiredOutput.call(this, " * Not a valid pincode.. ")
+        return false
     } else {
         successOutput.call(this)
+        return true
     }
-    // console.log(this.value.charAt(0) + ["9", "8", "7", "6"].indexOf(this.value.charAt(0)))
+}
+
+
+// function to check mobile number input
+function phoneInputCheck() {
+    var number = this.value.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '')
+    if (number == "" | number == " ") {
+        requiredOutput.call(this);
+        return false;
+    } else if (number.length < 10) {
+        requiredOutput.call(this, " * 10 digits required.. ")
+        return false
+    } else if (number.length > 10) {
+        requiredOutput.call(this, " * maximum 10 digits allowed.. ")
+        return false
+    } else if (["9", "8", "7", "6"].indexOf(number.charAt(0)) == -1) {
+        // console.log("1st digit checking started")
+        requiredOutput.call(this, " * Not a valid number.. ")
+        return false
+    } else {
+        successOutput.call(this)
+        return true
+    }
+    // console.log(number.charAt(0) + ["9", "8", "7", "6"].indexOf(this.value.charAt(0)))
 
 }
 
 
+function emailInputCheck() {
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+
+    if (this.value == "" | this.value == " ") {
+        requiredOutput.call(this)
+        return false
+    } else if (!this.value.match(mailformat)) {
+        requiredOutput.call(this, " * Not a valid email.. ")
+        return false
+    } else {
+        successOutput.call(this)
+        return true
+    }
+}
 
 
+function passwordInputCheck() {
+    let password = true
+    var lowercase_letter = /[a-z]/g
+    var uppercase_letter = /[A-Z]/g
+    var numbers = /[0-9]/g
+    if (this.value == "" | this.value == " ") {
+        requiredOutput.call(this)
+        password = false
+        return password
+    }
 
+    if (this.value.length < 8) {
+        requiredOutput.call(this, " * Password must contains ")
+        this.nextElementSibling.innerHTML += 'atleast 8 characters '
+        password = false
+        // } else { 
 
+    }
+    if (!this.value.match(lowercase_letter)) {
+        if (password) {
+            requiredOutput.call(this, " * Password must contains ")
+        }
+        this.nextElementSibling.innerHTML += 'lowercase letters '
+        password = false
+        // } else {
 
+    }
+    if (!this.value.match(uppercase_letter)) {
+        if (password) {
+            requiredOutput.call(this, " * Password must contains ")
+        }
+        this.nextElementSibling.innerHTML += 'uppercase letters '
+        password = false
+        // } else {
 
+    }
+    if (!this.value.match(numbers)) {
+        if (password) {
+            requiredOutput.call(this, " * Password must contains ")
+        }
+        this.nextElementSibling.innerHTML += 'number'
+        password = false
+        // } else { 
+
+    }
+
+    if (password) {
+        successOutput.call(this)
+        return password
+    }
+    return password
+
+}
+
+function confirmPasswordInputCheck() {
+    if (this.value == "" | this.value == " ") {
+        requiredOutput.call(this)
+        return false
+    } else {
+        if (document.getElementById("password").value === document.getElementById("confirm_password").value) {
+            successOutput.call(this)
+            return true
+        } else {
+            requiredOutput.call(this, " * Not match")
+            return false
+        }
+    }
+
+}
 
 
 

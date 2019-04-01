@@ -36,8 +36,8 @@ function validate() {
     if (!inputCheck.call(dob)) { confirm = false }
     if (!inputCheck.call(firstname)) { confirm = false }
 
-    console.log(password.value)
-    console.log(confirm_password.value)
+    // console.log(password.value)
+    // console.log(confirm_password.value)
     if (confirm) {
         console.log("Successfully checked")
         let alert = '<div class="alert alert-success text-center" role="alert"> Registered Successfully </div>'

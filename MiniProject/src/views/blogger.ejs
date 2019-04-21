@@ -13,6 +13,67 @@
 </section>
 <!-- End banner Area -->
 
+<!-- Start Post Silder Area -->
+<section class="post-slider-area">
+    <div class="container box_1170">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="owl-carousel active-post-carusel">
+                    <% for(var i = 0; i<posts.length; i++ ) {%>
+                    <div class="post-box mb-30">
+                        <div class="d-flex">
+                            <div>
+                                <a href="/<%=b_id%>">
+                                    <img src="img/author/<%=posts[i].blogger.img%>" alt="">
+                                </a>
+                            </div>
+                            <div class="post-meta">
+                                <div class="meta-head">
+                                    <a href="/<%=b_id%>"><%= posts[i].blogger.name %></a>
+                                </div>
+                                <div class="meta-details">
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                                <span class="lnr lnr-calendar-full"></span>
+                                                <%= posts[i].post.date %>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="lnr lnr-picture"></span>
+                                                Image Post
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="lnr lnr-coffee-cup"></span>
+                                                <%= posts[i].post.category %>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="lnr lnr-bubble"></span>
+                                                <%= posts[i].post.comments %> Comments
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <h3><%= posts[i].post.heading %></h3>
+                        <div class="post-btn">
+                            <a href="blog/details" class="primary-btn text-uppercase">Read More</a>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Post Silder Area -->
+
 <!-- Start main body Area -->
 <div class="main-body section-gap mt--30">
     <div class="container box_1170">
@@ -26,20 +87,20 @@
                             <img class="post-img img-fluid" src="img/posts/<%=posts[i].post.img%>" alt="">
                         </figure>
                         <h3>
-                            <a href="/blog/details"> <%=posts[i].post.heading%> </a>
+                            <a href="blog/details"> <%=posts[i].post.heading%> </a>
                         </h3>
                         <p> <%= posts[i].post.text %> </p>
-                        <a href="/blog/details" class="primary-btn text-uppercase mt-15">continue Reading</a>
+                        <a href="blog/details" class="primary-btn text-uppercase mt-15">continue Reading</a>
                         <div class="post-box">
                             <div class="d-flex">
                                 <div>
-                                    <a href="/<%=posts[i].blogger.b_id%>">
+                                    <a href="/<%=b_id%>">
                                         <img src="img/author/<%=posts[i].blogger.img%>" alt="">
                                     </a>
                                 </div>
                                 <div class="post-meta">
                                     <div class="meta-head">
-                                        <a href="/<%=posts[i].blogger.b_id%>"> <%= posts[i].blogger.name %> </a>
+                                        <a href="/<%=b_id%>"><%= posts[i].blogger.name %></a>
                                     </div>
                                     <div class="meta-details">
                                         <ul>
@@ -111,6 +172,27 @@
                     </form>
                 </div>
 
+                <div class="single-widget protfolio-widget">
+                    <img class="img-fluid" src="img/blog/user2.png" alt="">
+                    <a href="#">
+                        <h4><%=posts[0].blogger.name%></h4>
+                    </a>
+                    <div class="desigmation">
+                        <p>Senior blog writer</p>
+                    </div>
+                    <p>
+                        Boot camps have its supporters andit sdetractors. Some people do not understand why you should
+                        have to spend
+                        money on boot camp whenyou can get. Boot camps have itssuppor ters andits detractors.
+                    </p>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                    </ul>
+                </div>
+
                 <div class="single-widget popular-posts-widget">
                     <h4 class="title">Popular Posts</h4>
                     <div class="blog-list ">
@@ -119,7 +201,7 @@
                                 <img class="img-fluid" src="img/blog/r1.jpg" alt="">
                             </div>
                             <div class="popular-details">
-                                <a href="#">
+                                <a href="blog-details.html">
                                     <h4>Space Final Frontier</h4>
                                 </a>
                                 <p class="text-uppercase">02 hours ago</p>
@@ -130,7 +212,7 @@
                                 <img class="img-fluid" src="img/blog/r2.jpg" alt="">
                             </div>
                             <div class="popular-details">
-                                <a href="#">
+                                <a href="blog-details.html">
                                     <h4>The Amazing Hubble</h4>
                                 </a>
                                 <p class="text-uppercase">02 hours ago</p>
@@ -141,7 +223,7 @@
                                 <img class="img-fluid" src="img/blog/r3.jpg" alt="">
                             </div>
                             <div class="popular-details">
-                                <a href="#">
+                                <a href="blog-details.html">
                                     <h4>Astronomy Astrology</h4>
                                 </a>
                                 <p class="text-uppercase">02 hours ago</p>
@@ -152,7 +234,7 @@
                                 <img class="img-fluid" src="img/blog/r4.jpg" alt="">
                             </div>
                             <div class="popular-details">
-                                <a href="#">
+                                <a href="blog-details.html">
                                     <h4>Asteroids telescope</h4>
                                 </a>
                                 <p class="text-uppercase">02 hours ago</p>
@@ -191,14 +273,15 @@
                 <div class="single-widget newsletter-widget">
                     <h4 class="title">Newsletter</h4>
                     <div id="mc_embed_signup">
-                        <form target="_blank" novalidate="true" action="" method="get" class="">
-                            <!-- https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01 -->
+                        <form target="_blank" novalidate="true"
+                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                            method="get" class="">
                             <div class="form-group" style="width: 100%">
                                 <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''"
                                     onblur="this.placeholder = 'Email Address '" required="" type="email">
                                 <div style="position: absolute; left: -5000px;">
-                                    <input name="" tabindex="-1" value="" type="text">
-                                    <!-- <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""type="text"> -->
+                                    <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                        type="text">
                                 </div>
 
                                 <button class="primary-btn text-uppercase">

@@ -1,19 +1,20 @@
-const express = require("express")
-const chalk = require("chalk")
-const expressEjsLayouts = require("express-ejs-layouts")
-const path = require("path")
+const express = require("express");
+const chalk = require("chalk");
+const expressEjsLayouts = require("express-ejs-layouts");
+const path = require("path");
 
-const adminRouter = require("./admin")
-const blogRouter = require("./blog")
-my_app = express()
+const adminRouter = require("./admin");
+const blogRouter = require("./blog");
+const userModel = require("./src/model/userModel")
+my_app = express();
 
-my_app.set("view engine", "ejs")
-my_app.set("views", "./src/views")
+my_app.set("view engine", "ejs");
+my_app.set("views", "./src/views");
 
-my_app.use(expressEjsLayouts)
-my_app.use(express.static(path.join(__dirname, "public")))
-my_app.use("/admin", adminRouter)
-my_app.use("/blog", blogRouter)
+my_app.use(expressEjsLayouts);
+my_app.use(express.static(path.join(__dirname, "public")));
+my_app.use("/admin", adminRouter);
+my_app.use("/blog", blogRouter);
 
 var posts = [
     {
@@ -91,26 +92,26 @@ var posts = [
             "comments": "03"
         }
     },
-]
+];
 
 my_app.get("/", (req, res) => {
-    res.render("home", { posts })
-})
+   res.render("home", { posts });    
+});
 
 my_app.get("/category", (req, res) => {
-    res.render("category")
-})
+    res.render("category");
+});
 
 my_app.get("/contact", (req, res) => {
-    res.render("contact")
-})
+    res.render("contact");
+});
 
 my_app.get("/:b_id", (req, res) => {
-    var b_id = req.params.b_id
-    res.render("blogger", { posts, b_id })
-})
+    var b_id = req.params.b_id;
+    res.render("blogger", { posts, b_id });
+});
 
 
 my_app.listen(process.env.PORT || 4545, () => {
-    console.log(chalk.blue("My app is listening to port : ") + chalk.red("4545"))
+    console.log(chalk.blue("My app is listening to port : ") + chalk.red("4545"));
 })

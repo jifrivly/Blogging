@@ -5,7 +5,8 @@ const path = require("path");
 
 const adminRouter = require("./admin");
 const blogRouter = require("./blog");
-const userModel = require("./src/model/userModel")
+// const userModel = require("./src/model/userModel");
+
 my_app = express();
 
 my_app.set("view engine", "ejs");

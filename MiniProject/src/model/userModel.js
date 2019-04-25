@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/blogging")
+mongoose.connect("mongodb://localhost:27017/blogDB")
     .then(() => {
         console.log("Database connection successful");
     })
@@ -9,10 +9,7 @@ mongoose.connect("mongodb://localhost:27017/blogging")
     });
 
 const newUserSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        unique: true
-    },
+    username: String,
     password: String
 });
 

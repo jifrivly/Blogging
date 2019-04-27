@@ -1,50 +1,48 @@
-const express = require("express")
-const bodyParser = require("body-parser")
-const newUserSchema = require("./src/model/userModel")
+const express = require("express");
+const bodyParser = require("body-parser");
+const newUserSchema = require("./src/model/userModel");
 
-var blog = express.Router()
+var blog = express.Router();
 
-blog.use(bodyParser.urlencoded())
+blog.use(bodyParser.urlencoded());
 
 blog.get("/", (req, res) => {
-    res.render("under-construction")
-})
+    res.redirect("/blog/login");
+});
 
 blog.get("/details", (req, res) => {
-    res.render("blog-details")
-})
+    res.render("blog-details");
+});
 
 blog.get("/login", (req, res) => {
-    res.render("login")
-})
+    res.render("login");
+});
 
 blog.post("/login", (req, res) => {
     var user = req.body.username;
     var pass = req.body.password;
 
-    var data = newUserSchema.findOne();
-    console.log(data.username + data.password)
-    res.send(data.username)
+    newUserSchema.findOne({
+            username: user
+        })
+        .then((auth) => {
+            console.log("in callback function");
+            if (auth) {
+                if (pass == auth.password) {
+                    res.send(auth.username + " is Successfully logged in");
+                } else {
+                    res.send("username or password not match");
+                }
+            } else {
+                res.send("username or password not match");
+            }
+        });
 
-    // userCheck.findOne({username: user}, (err, auth) => {
-    //     console.log("in callback function")
-    //     if (err) {
-    //         res.send("An error occurred" + err)
-    //     }
-        
-    //     if (auth) {
-    //         if(pass == auth.password){
-    //             res.send(user + " is Successfully logged in")
-    //         }
-    //     } else {
-    //         res.send("username or password not match")
-    //     }
-    // });
 });
 
 blog.get("/create", (req, res) => {
-    res.render("under-construction")
-})
+    res.render("under-construction");
+});
 
 
-module.exports = blog
+module.exports = blog;

@@ -115,4 +115,4 @@ my_app.get("/:b_id", (req, res) => {
 
 my_app.listen(process.env.PORT || 4545, () => {
     console.log(chalk.blue("My app is listening to port : ") + chalk.red("4545"));
-})
+});

@@ -25,30 +25,28 @@
                     <%for(var i = 0; i < userData.posts.length; i++) { %>
                     <div class="single-post-item">
                         <figure>
-                            <img class="post-img img-fluid" src="img/posts/<%=posts[i].post.img%>" alt="">
+                            <img class="post-img img-fluid" src="/img/posts/<%=userData.posts[i].image%>" alt="">
                         </figure>
-                        <h3>
-                            <a href="/blog/details"> <%=posts[i].post.heading%> </a>
-                        </h3>
-                        <p> <%= posts[i].post.text %> </p>
-                        <a href="/blog/details" class="primary-btn text-uppercase mt-15">continue Reading</a>
+                        <h3><%=userData.posts[i].heading%></h3>
+                        <p> <%=userData.posts[i].text%> </p>
+                        <a href="/post/edit/<%=userData.posts[i]._id%>" class="primary-btn text-uppercase mt-15"> Edit this  post &ThickSpace; <i class="fa fa-edit fa-2x"></i></a href="/post/edit/">
                         <div class="post-box">
                             <div class="d-flex">
                                 <div>
-                                    <a href="/<%=posts[i].blogger.b_id%>">
-                                        <img src="img/author/<%=posts[i].blogger.img%>" alt="">
+                                    <a href="/<%=userData.auth.username%>">
+                                        <img src="/img/author/<%=userData.auth.image%>" alt="">
                                     </a>
                                 </div>
                                 <div class="post-meta">
                                     <div class="meta-head">
-                                        <a href="/<%=posts[i].blogger.b_id%>"> <%= posts[i].blogger.name %> </a>
+                                        <a href="/<%=userData.auth.username%>"> <%= userData.auth.name %> </a>
                                     </div>
                                     <div class="meta-details">
                                         <ul>
                                             <li>
                                                 <a href="#">
                                                     <span class="lnr lnr-calendar-full"></span>
-                                                    <%= posts[i].post.date %>
+                                                    <%= userData.posts[i].date %>
                                                 </a>
                                             </li>
                                             <li>
@@ -60,13 +58,13 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="lnr lnr-coffee-cup"></span>
-                                                    <%= posts[i].post.category %>
+                                                    <%= userData.posts[i].category %>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="#">
                                                     <span class="lnr lnr-bubble"></span>
-                                                    <%= posts[i].post.comments %> Comments
+                                                    <%= userData.posts[i].comments %> Comments
                                                 </a>
                                             </li>
                                         </ul>
@@ -118,7 +116,7 @@
                     <div class="blog-list ">
                         <div class="single-popular-post d-flex flex-row">
                             <div class="popular-thumb">
-                                <img class="img-fluid" src="img/blog/r1.jpg" alt="">
+                                <img class="img-fluid" src="/img/blog/r1.jpg" alt="">
                             </div>
                             <div class="popular-details">
                                 <a href="#">
@@ -129,7 +127,7 @@
                         </div>
                         <div class="single-popular-post d-flex flex-row">
                             <div class="popular-thumb">
-                                <img class="img-fluid" src="img/blog/r2.jpg" alt="">
+                                <img class="img-fluid" src="/img/blog/r2.jpg" alt="">
                             </div>
                             <div class="popular-details">
                                 <a href="#">
@@ -140,7 +138,7 @@
                         </div>
                         <div class="single-popular-post d-flex flex-row">
                             <div class="popular-thumb">
-                                <img class="img-fluid" src="img/blog/r3.jpg" alt="">
+                                <img class="img-fluid" src="/img/blog/r3.jpg" alt="">
                             </div>
                             <div class="popular-details">
                                 <a href="#">
@@ -151,7 +149,7 @@
                         </div>
                         <div class="single-popular-post d-flex flex-row">
                             <div class="popular-thumb">
-                                <img class="img-fluid" src="img/blog/r4.jpg" alt="">
+                                <img class="img-fluid" src="/img/blog/r4.jpg" alt="">
                             </div>
                             <div class="popular-details">
                                 <a href="#">

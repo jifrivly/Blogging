@@ -18,6 +18,6 @@ const newUserSchema = new mongoose.Schema({
 // var userSchema = mongoose.model("userSchema",newUserSchema);
 // module.exports = userSchema;
 
-module.exports = mongoose.model("users", newUserSchema);
+module.exports = mongoose.model("user", newUserSchema);
 
 // module.exports = mongoose.model("userSchema",{username:{type:String,unique:true},password:String})

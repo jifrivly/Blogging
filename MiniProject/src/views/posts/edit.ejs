@@ -7,14 +7,15 @@
                 <div class="card shadow " style="border-color: #8050fa">
                     <h4 class="card-header text-center " style="background-color: #8050fa;">Create new post </h4>
                     <div class="text-center">
-                        <img class="card-img-top" style="width: 50vh; height: 50vh;"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Icons8_flat_add_image.svg/1024px-Icons8_flat_add_image.svg.png"
+                        <img class="card-img-top" style="width: 100vh; height: 50vh;"
+                            src="/img/posts/<%=data.image%>"
                             alt="">
                     </div>
-                    <form action="/post/create" method="post">
+                    <form action="/post/edit" method="post">
                         <div class="card-body my-5">
+                            <input type="text" name="p_id" value="<%=data._id%>" hidden>
                             <h4 class="card-title">
-                                <input type="text" name="heading" placeholder="Enter heading of post"
+                                <input type="text" name="heading" placeholder="Enter heading of post" value="<%=data.heading%>"
                                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter heading of post'"
                                     required class="single-input">
                             </h4>
@@ -23,15 +24,15 @@
                                     <div class="icon"><i class="lnr lnr-coffee-cup" aria-hidden="true"></i></div>
                                     <div class="form-select" id="default-select"">
                                     <select name="category" required>
-                                        <option disabled selected>Category</option>
-                                        <option value=" Food and Travel">Food and Travel</option>
-                                        <option value="Travel">Travel</option>
+                                        <option disabled >Category</option>
+                                        <option value="Food and Travel" <%if(data.category=="Food and Travel"){%>selected<%}%>>Food and Travel</option>
+                                        <option value="Travel" <%if(data.category=="Travel"){%>selected<%}%>>Travel</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="mt-10">
-                                    <textarea name="text" class="single-textarea" placeholder="Enter Your post "
-                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your post '"
+                                    <textarea name="text" class="single-textarea" placeholder="<%=data.text%>"
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = '<%=data.text%> '"
                                         required></textarea>
                                 </div>
                                 <div class="mt-10">

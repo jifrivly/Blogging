@@ -8,7 +8,8 @@ mongoose.connect("mongodb://localhost:27017/blogDB")
         console.error("Database connection error");
     });
 
-const newBlogSchema = new mongoose.Schema({
+const newPostSchema = new mongoose.Schema({
+    username :String,
     image: String,
     heading: String,
     text: String,
@@ -16,3 +17,5 @@ const newBlogSchema = new mongoose.Schema({
     category: String,
     comments: String,
 });
+
+module.exports = mongoose.model("post", newPostSchema)

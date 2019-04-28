@@ -4,7 +4,8 @@ const expressEjsLayouts = require("express-ejs-layouts");
 const path = require("path");
 
 const adminRouter = require("./admin");
-const blogRouter = require("./blog");
+const userRouter = require("./user");
+const postRouter = require("./post");
 // const userModel = require("./src/model/userModel");
 
 my_app = express();
@@ -15,7 +16,8 @@ my_app.set("views", "./src/views");
 my_app.use(expressEjsLayouts);
 my_app.use(express.static(path.join(__dirname, "public")));
 my_app.use("/admin", adminRouter);
-my_app.use("/blog", blogRouter);
+my_app.use("/user", userRouter);
+my_app.use("/post",postRouter)
 
 var posts = [
     {

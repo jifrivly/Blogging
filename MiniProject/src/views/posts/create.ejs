@@ -1,0 +1,50 @@
+<div class="main-body section-gap mt--30" style="background-color:">
+
+    <div class="container-fluid py-3">
+        <div class="row">
+            <div class="col col-12 col-sm-12 col-md-2 col-lg-3 col-xl-3"></div>
+            <div class="col col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6">
+                <div class="card shadow ">
+                    <h4 class="card-header text-center">Create new post </h4>
+                    <div class="text-center">
+                        <img class="card-img-top" style="width: 50vh; height: 50vh;"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Icons8_flat_add_image.svg/1024px-Icons8_flat_add_image.svg.png"
+                            alt="">
+                    </div>
+                    <form action="/post/create" method="post">
+                        <div class="card-body my-5">
+                            <h4 class="card-title">
+                                <input type="text" name="heading" placeholder="Enter heading of post"
+                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter heading of post'"
+                                    required class="single-input">
+                            </h4>
+                            <p class="card-text">
+                                <div class="input-group-icon mt-10">
+                                    <div class="icon"><i class="lnr lnr-coffee-cup" aria-hidden="true"></i></div>
+                                    <div class="form-select" id="default-select"">
+                                    <select name="category" required>
+                                        <option disabled selected>Category</option>
+                                        <option value=" Food and Travel">Food and Travel</option>
+                                        <option value="Travel">Travel</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mt-10">
+                                    <textarea name="text" class="single-textarea" placeholder="Enter Your post "
+                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your post '"
+                                        required></textarea>
+                                </div>
+                                <div class="mt-10">
+                                    <button class="genric-btn primary circle text-uppercase" style="float: right;">Save
+                                        and
+                                        Post</button>
+                                </div>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col col-12 col-sm-12 col-md-2 col-lg-3 col-xl-3"></div>
+        </div>
+    </div>
+</div>

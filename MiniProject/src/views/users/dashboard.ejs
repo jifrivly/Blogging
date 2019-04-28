@@ -13,6 +13,8 @@
 </section>
 <!-- End banner Area -->
 
+<%=userData.auth, userData.posts%>
+
 <!-- Start main body Area -->
 <div class="main-body section-gap mt--30">
     <div class="container box_1170">
@@ -20,7 +22,7 @@
             <div class="col-lg-8 post-list">
                 <!-- Start Post Area -->
                 <section class="post-area">
-                    <%for(var i = 0; i < posts.length; i++) { %>
+                    <%for(var i = 0; i < userData.posts.length; i++) { %>
                     <div class="single-post-item">
                         <figure>
                             <img class="post-img img-fluid" src="img/posts/<%=posts[i].post.img%>" alt="">
@@ -29,7 +31,7 @@
                             <a href="/blog/details"> <%=posts[i].post.heading%> </a>
                         </h3>
                         <p> <%= posts[i].post.text %> </p>
-                        <a href="/post/details" class="primary-btn text-uppercase mt-15">continue Reading</a>
+                        <a href="/blog/details" class="primary-btn text-uppercase mt-15">continue Reading</a>
                         <div class="post-box">
                             <div class="d-flex">
                                 <div>

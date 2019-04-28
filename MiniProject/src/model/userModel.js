@@ -9,8 +9,10 @@ mongoose.connect("mongodb://localhost:27017/blogDB")
     });
 
 const newUserSchema = new mongoose.Schema({
+    name:String,
+    image:String,
     username: String,
-    password: String
+    password: String,
 });
 
 // var userSchema = mongoose.model("userSchema",newUserSchema);

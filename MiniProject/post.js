@@ -52,7 +52,7 @@ post.post("/edit", (req, res) => {
         heading: req.body.heading,
         text: req.body.text,
         category: req.body.category
-    }
+    };
     postModel.updateMany({
             _id: req.body.p_id
         }, {

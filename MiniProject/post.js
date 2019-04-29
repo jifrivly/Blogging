@@ -64,6 +64,15 @@ post.post("/edit", (req, res) => {
     res.redirect("/user/dashboard");
 });
 
+post.get("/delete/:p_id", (req, res) => {
+    postModel.deleteOne({_id: req.params.p_id})
+    .catch((err)=>{
+        console.log("An error occured while deleting "+err);
+    });
+    res.redirect("/user/dashboard");
+
+});
+
 post.get("/details", (req, res) => {
     res.render("posts/blog-details");
 });

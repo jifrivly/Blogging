@@ -7,6 +7,9 @@
                     Blog Here <br>
                     The Luxury Of Traveling
                 </h1>
+                <br><br>
+                <a href="/post/create" class="btn btn-outline-light p-3"
+                    style="font-size: 3vh; font-family: Playfair Display, serif;"><i class="fa fa-plus pr-1"></i>CREATE NEW</a>
             </div>
         </div>
     </div>
@@ -27,7 +30,11 @@
                         </figure>
                         <h3><%=userData.posts[i].heading%></h3>
                         <p> <%=userData.posts[i].text%> </p>
-                        <a href="/post/edit/<%=userData.posts[i]._id%>" class="primary-btn text-uppercase mt-15"> Edit this  post &ThickSpace; <i class="fa fa-edit fa-2x"></i></a href="/post/edit/">
+                        <a href="/post/edit/<%=userData.posts[i]._id%>" class="primary-btn text-uppercase mt-15"> Edit
+                            post &ThickSpace; <i class="fa fa-edit fa-2x"></i></a href="/post/edit/">
+                        <a href="/post/delete/<%=userData.posts[i]._id%>"
+                            class="border border-danger primary-btn text-danger mt-15" style="float: right;"> <i
+                                class="fa fa-trash fa-2x"></i> Delete post </a href="/post/edit/">
                         <div class="post-box">
                             <div class="d-flex">
                                 <div>

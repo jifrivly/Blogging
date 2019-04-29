@@ -25,21 +25,23 @@ my_app.use("/post", postRouter);
 var users = [];
 var posts = [];
 
-function getPost(username=null) {
-    userModel.find({username}, (err, data) => {
+function getPost(username = {}) {
+    userModel.find(username, (err, data) => {
         if (err) {
-            console.log(err);
+            console.log("An error occured " + err);
         } else {
             users = data;
         };
+        console.log("Data : " + users);
     });
 
-    postModel.find({username}, (err, data) => {
+    postModel.find(username, (err, data) => {
         if (err) {
             console.log(err);
         } else {
             posts = data;
         };
+        console.log("Data : " + posts);
     });
 
     for (let i = 0; i < posts.length; i++) {
@@ -49,8 +51,8 @@ function getPost(username=null) {
                 name = users[j].name;
                 userImage = users[j].image;
                 break;
-            }
-        }
+            };
+        };
         posts[i] = {
             post: posts[i],
             user: {
@@ -59,23 +61,16 @@ function getPost(username=null) {
             }
         };
     };
+    console.log("Integrated Data : " + posts);
     return posts;
 };
 
 
 
-
-
-// var posts = [
-//     {"username":"smhjifri","image": "p1.jpg","heading": "It's Hurricane Season But We Are Visiting Hilton Island","text":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.","date": "Mon Apr 29 2019 09:48:18 GMT+0530 (India Standard Time)","category": "Food & Travel","comments": "03"},
-//     {"username":"smhjifri","image": "p2.jpg","heading": "Global Resorts Network Grn Putting Timeshares To Shame","text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum nemo inventore ducimus dolorum sequi dolorem vel, voluptatem corrupti. Modi ratione facilis aliquid ipsam veniam officia iusto corporis voluptates possimus natus.","date": "Mon Apr 29 2019 09:48:18 GMT+0530 (India Standard Time)","category": "Food & Travel","comments": "04" },    
-//     {"username":"smhjifri","image": "p3.jpg","heading": "A Guide To Rocky Mountain Vacations","text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.","date": "Mon Apr 29 2019 09:48:18 GMT+0530 (India Standard Time)","category": "Food & Travel","comments": "06" },
-//     {"username":"smhjifri","image": "p4.jpg","heading": "Big Savings On Gas While You Travel","text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.","date": "Mon Apr 29 2019 09:48:18 GMT+0530 (India Standard Time)","category": "Food & Travel","comments": "01" },
-//     {"username":"smhjifri","image": "p5.jpg","heading": "Tourism Is Back In Full Swing In Cancun Mexico","text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.","date": "Mon Apr 29 2019 09:48:18 GMT+0530 (India Standard Time)","category": "Food & Travel","comments": "09"}
-// ];
-
 my_app.get("/", (req, res) => {
-    var posts = getPost("jifrivly");
+    var posts = getPost();
+
+    // res.send(posts);
 
     res.render("home", {
         posts
@@ -90,13 +85,23 @@ my_app.get("/contact", (req, res) => {
     res.render("contact");
 });
 
-// my_app.get("/:b_id", (req, res) => {
-//     var b_id = req.params.b_id;
+my_app.get("/:b_id", (req, res) => {
+    var b_id = req.params.b_id;
+    posts = getPost({
+        username: b_id
+    });
 
-//     res.render("blogger", {
-//         posts,
-//     });
-// });
+    // res.send(posts);
+
+    if (posts.length > 0) {
+        res.render("blogger", {
+            posts,
+        });
+    } else {
+        res.send("User not found");
+    };
+
+});
 
 
 my_app.listen(process.env.PORT || 4545, () => {

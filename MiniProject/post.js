@@ -1,11 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const postModel = require("./src/model/postModel");
 
 const post = express.Router();
 
 post.use(bodyParser.urlencoded());
+post.use(cors());
 
 post.get("/", (req, res) => {
     res.redirect("/user/login");

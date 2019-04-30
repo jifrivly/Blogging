@@ -2,6 +2,7 @@ const express = require("express");
 const chalk = require("chalk");
 const expressEjsLayouts = require("express-ejs-layouts");
 const path = require("path");
+const cors = require("cors");
 
 const postModel = require("./src/model/postModel");
 const userModel = require("./src/model/userModel");
@@ -17,6 +18,7 @@ my_app.set("views", "./src/views");
 
 my_app.use(expressEjsLayouts);
 my_app.use(express.static(path.join(__dirname, "public")));
+my_app.use(cors());
 my_app.use("/admin", adminRouter);
 my_app.use("/user", userRouter);
 my_app.use("/post", postRouter);
@@ -32,7 +34,7 @@ function getPost(username = {}) {
         } else {
             users = data;
         };
-        console.log("Data : " + users);
+        // console.log("Data : " + users);
     });
 
     postModel.find(username, (err, data) => {
@@ -41,7 +43,7 @@ function getPost(username = {}) {
         } else {
             posts = data;
         };
-        console.log("Data : " + posts);
+        // console.log("Data : " + posts);
     });
 
     for (let i = 0; i < posts.length; i++) {
@@ -49,7 +51,7 @@ function getPost(username = {}) {
         for (let j = 0; j < users.length; j++) {
             if (posts[i].username == users[j].username) {
                 name = users[j].name;
-                userImage = users[j].image;
+                image = users[j].image;
                 break;
             };
         };
@@ -57,11 +59,11 @@ function getPost(username = {}) {
             post: posts[i],
             user: {
                 name,
-                userImage
+                image
             }
         };
     };
-    console.log("Integrated Data : " + posts);
+    // console.log("Integrated Data : " + posts);
     return posts;
 };
 

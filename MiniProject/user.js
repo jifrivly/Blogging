@@ -1,11 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const newUserSchema = require("./src/model/userModel");
 const newPostSchema = require("./src/model/postModel")
 
 var user = express.Router();
 
 user.use(bodyParser.urlencoded());
+user.use(cors());
 
 var userData = "";
 

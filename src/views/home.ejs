@@ -20,6 +20,13 @@
             <div class="col-lg-8 post-list">
                 <!-- Start Post Area -->
                 <section class="post-area">
+
+                    <%if(posts.length==0) {%>
+                    <div class="border border-primary shadow bg-danger text-light text-center mb-5 py-5 ">
+                        <p style="font-size: 25px"> <i class="fa fa-warning"></i> No posts found !!</p>
+                    </div>
+                    <% } %>
+                    
                     <%for(var i = 0; i < posts.length; i++) { %>
                     <div class="single-post-item">
                         <figure>
@@ -34,7 +41,7 @@
                             <div class="d-flex">
                                 <div>
                                     <a href="/<%=posts[i].post.username%>">
-                                        <img src="/img/author/<%=posts[i].user.userImage%>" alt="">
+                                        <img src="/img/author/<%=posts[i].user.image%>" alt="">
                                     </a>
                                 </div>
                                 <div class="post-meta">

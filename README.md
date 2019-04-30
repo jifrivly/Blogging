@@ -1,2 +1,3 @@
 # Assignments_for_ICTA
-This contains all assignments for ICTA full stack development course.
+This contains mini project for ICTA full stack development course.
+In Node.js, Express, EJS-Express-template and MongoDB
